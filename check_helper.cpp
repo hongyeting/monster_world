@@ -1,7 +1,10 @@
-#include<iostream>
+#include<fstream>
 #include<string>
 
 using namespace std;
+
+ifstream cin("D:\\VS\\cindata.txt");
+ofstream cout("D:\\VS\\coutdata.txt");
 
 string s[10000];
 
@@ -10,8 +13,8 @@ int main()
 	int x = 0;//x lines
 	for (;;x++)
 	{
-		getline(cin, s[x]);
-		if (s[x] == "abcdefg")break;
+		getline(cin, s[x]);cout << 1;
+		if (s[x] == "abcdefg" || x == 9999)break;
 	}
 	string ss;
 	int wrong = 0;
