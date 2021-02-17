@@ -237,19 +237,19 @@ int main()
 				lion逃跑
 				000:05 blue lion 1 ran away
 			*/
-			for (int i = 1;i <= N;i++)
+			for (int i = 0;i <= N + 1;i++)
 			{
 				for (int clr = 0;clr < 2;clr++)
 				{
+					if ((i == 0 && clr == 1) || (i == N + 1 && clr == 0))continue;
 					if (city[i][clr] != 0)
 					{
-						if (warrior[clr][city[i][clr]].attribute == 3)
-							if (warrior[clr][city[i][clr]].loyalty <= 0)//跑路了！
-							{
-								coutime();cout << " " << color_name[clr] << " lion " << city[i][clr] << " ran away" << '\n';
-								warrior[clr][city[i][clr]].element = 0;//社死，便于后续操作
-								city[i][clr] = 0;
-							}
+						if (warrior[clr][city[i][clr]].attribute == 3 && warrior[clr][city[i][clr]].loyalty <= 0)//跑路了！
+						{
+							coutime();cout << " " << color_name[clr] << " lion " << city[i][clr] << " ran away" << '\n';
+							warrior[clr][city[i][clr]].element = 0;//社死，便于后续操作
+							city[i][clr] = 0;
+						}
 					}
 				}
 			}
